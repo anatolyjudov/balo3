@@ -1,0 +1,5 @@
+<img src="{$farch_foto_params.folders.link}/{$album_id}/{$farch_foto_params.previews.main.prefix}{$foto_id}.{$fotos_list[$foto_id].TECH_INFO.extension}" border=0 alt="" style="width: {$fotos_list[$foto_id].TECH_INFO.previews.main[0]}px; height: {$fotos_list[$foto_id].TECH_INFO.previews.main[1]}px; margin: 0; display: block;" id="fancybox_openimage_img">
+{if $fotos_list[$foto_id].FOTO_TITLE ne ""}<div class="foto_title foto_title_boxmode">{$fotos_list[$foto_id].FOTO_TITLE|strip_tags|escape:'html'}</div>{/if}
+<div id="vk_comments{$foto_id}" style="margin: 0; width: {$fotos_list[$foto_id].TECH_INFO.previews.main[0]}px;"></div><script type="text/javascript">
+IE=!!top.execScript; if (!IE) {ldelim} VK.Widgets.Comments("vk_comments{$foto_id}", {ldelim} limit: 10, attach: false, width: {$fotos_list[$foto_id].TECH_INFO.previews.main[0]}{rdelim}, 'fotoarchive{$foto_id}'); {rdelim}
+</script>

@@ -1,0 +1,1 @@
+{balo3_placeholder name="main"}

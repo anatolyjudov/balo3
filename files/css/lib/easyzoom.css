@@ -1,0 +1,94 @@
+/**
+ * EasyZoom core styles
+ */
+.easyzoom {
+	position: relative;
+
+	/* 'Shrink-wrap' the element */
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+.easyzoom img {
+	vertical-align: bottom;
+}
+
+.easyzoom.is-loading img {
+	cursor: progress;
+}
+
+.easyzoom.is-ready img {
+	cursor: pointer;
+	zoom: normal;
+}
+
+.easyzoom.is-error  img {
+	cursor: not-allowed;
+}
+
+.easyzoom-notice {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 150;
+	width: 10em;
+	margin: -1em 0 0 -5em;
+	line-height: 2em;
+	text-align: center;
+	background: #FFF;
+	box-shadow: 0 0 10px #888;
+}
+
+.easyzoom-flyout {
+	position:absolute;
+	z-index: 100;
+	overflow: hidden;
+	background: #FFF;
+	border-radius: 5px;
+	margin: 0 !important;
+	padding: 0 !important;
+/*	max-width: 350px !important;
+	max-height: 550px !important;
+	box-shadow: #eee 2px 2px 10px;*/
+
+}
+
+.easyzoom-flyout img
+{
+	max-width: none !important;
+	border-radius: 5px;
+	margin: 0;
+	padding: 0;
+/*	max-width: 350px !important;
+	max-height: 550px !important;
+	box-shadow: #eee 2px 2px 10px;
+	border: #dadada solid 3px;*/
+
+}
+
+/**
+ * EasyZoom layout variations
+ */
+.easyzoom--overlay .easyzoom-flyout {
+	top: 0;
+	left: 0;
+	min-width: calc(100%);
+	height: calc(100%);
+}
+
+.easyzoom--adjacent .easyzoom-flyout {
+	top: 0;
+	left: calc(100% + 20px);
+	width: 100%;
+	height: 100%;
+	margin-left: 20px;
+}
+
+.easyzoom .fulscreen_pic
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+}

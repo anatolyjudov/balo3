@@ -1,0 +1,103 @@
+<?php
+
+function phpmorphy_get_search_words($input = array()) {
+	global $phpmorphy, $phpmorphy_clean_chars, $phpmorphy_search_word_min_strlen, $phpmorphy_search_stop_words, $phpmorphy_search_short_words_allowed;
+
+	if (!is_array($input)) {
+		$input = explode(" ", $input);
+	}
+
+	//var_dump($input);
+
+	if (count($input) == 0) {
+		return array();
+	}
+
+	$words = array();
+	$result = array();
+	foreach($input as $n=>$i) {
+		$t = mb_strtoupper(trim($i, $phpmorphy_clean_chars));
+		if ( in_array($t, $phpmorphy_search_stop_words) ) continue;
+		if ( (mb_strlen($t) >= $phpmorphy_search_word_min_strlen) || in_array($t, $phpmorphy_search_short_words_allowed) ) {
+			$words[] = $t;
+		}
+	}
+
+	if (count($words) == 0) {
+		return array();
+	}
+
+	$r = $phpmorphy->getAllForms($words);
+
+	if($r == false) {
+		return false;
+	}
+
+	//show_ar($r);
+
+	foreach($r as $word=>$word_forms) {
+		if (!is_array($word_forms)) {
+			$result[$word] = array($word);
+			continue;
+		}
+		foreach($word_forms as $form) {
+			$result[$word][] = $form;
+		}
+	}
+
+	//echo "done";
+
+	return $result;
+
+/*
+array(2) {
+  ["ÔÐÅÇÛ"]=>
+  array(10) {
+    [0]=>
+    string(10) "ÔÐÅÇÀ"
+    [1]=>
+    string(10) "ÔÐÅÇÛ"
+    [2]=>
+    string(10) "ÔÐÅÇÅ"
+    [3]=>
+    string(10) "ÔÐÅÇÓ"
+    [4]=>
+    string(12) "ÔÐÅÇÎÉ"
+    [5]=>
+    string(12) "ÔÐÅÇÎÞ"
+    [6]=>
+    string(8) "ÔÐÅÇ"
+    [7]=>
+    string(12) "ÔÐÅÇÀÌ"
+    [8]=>
+    string(14) "ÔÐÅÇÀÌÈ"
+    [9]=>
+    string(12) "ÔÐÅÇÀÕ"
+  }
+  ["ÑÂÅÐËÀ"]=>
+  array(9) {
+    [0]=>
+    string(12) "ÑÂÅÐËÎ"
+    [1]=>
+    string(12) "ÑÂÅÐËÀ"
+    [2]=>
+    string(12) "ÑÂÅÐËÓ"
+    [3]=>
+    string(14) "ÑÂÅÐËÎÌ"
+    [4]=>
+    string(12) "ÑÂÅÐËÅ"
+    [5]=>
+    string(10) "ÑÂÅÐË"
+    [6]=>
+    string(14) "ÑÂÅÐËÀÌ"
+    [7]=>
+    string(16) "ÑÂÅÐËÀÌÈ"
+    [8]=>
+    string(14) "ÑÂÅÐËÀÕ"
+  }
+}
+*/
+}
+
+
+?>

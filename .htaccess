@@ -1,0 +1,23 @@
+php_value max_execution_time 600
+php_flag magic_quotes_gpc off
+php_flag magic_quotes_runtime off
+php_flag register_globals off
+php_flag register_globals_runtime off
+
+
+Order allow,deny
+Allow from all
+
+RewriteEngine On
+#RewriteBase /
+
+RewriteCond %{REQUEST_URI} entrypoint.php$ [OR]
+RewriteCond %{REQUEST_URI} ^/files/ [OR]
+RewriteCond %{REQUEST_URI} ^/_html/
+RewriteRule ^.*$ - [L]
+
+RewriteCond %{REQUEST_URI} \.[\d\w]+$
+RewriteRule ^(.*)$ /files/$1 [L]
+
+
+RewriteRule ^.*$ /entrypoint.php [L]

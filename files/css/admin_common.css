@@ -1,0 +1,75 @@
+table.sections_manage {
+	
+}
+
+	table.sections_manage tr.section_hidden {
+		color: #999;
+		font-style: italic;
+	}
+
+		table.sections_manage tr td {
+			font-size: 15px;
+		}
+
+		table.sections_manage tr.section_hidden a {
+			color: #999;
+		}
+
+table.goods_manage {
+	
+}
+
+	table.goods_manage tr.good_hidden, table.goods_manage tr.good_sold {
+		color: #999;
+		font-style: italic;
+	}
+
+		table.goods_manage tr td {
+			font-size: 15px;
+		}
+
+		table.goods_manage tr.good_hidden a, table.goods_manage tr.good_sold a {
+			color: #999;
+		}
+
+	table.goods_manage tr.good_additional_section {
+		font-style: italic;
+	}
+		table.goods_manage tr.good_additional_section td {
+			font-size: 90%;
+		}
+
+div.mainbox p.msg {
+	display: block; 
+	margin: 14px 0;
+	font-size: 12px;
+	background-color: #ddffdd;
+	border: 2px solid #99cc99;
+	padding: 5px 10px;
+	color: black;
+	border-radius: 5px;
+}
+
+
+div.additional h4 {
+	margin: 21px 0 7px;
+	font-size: 15px;
+}
+
+div.additional ul.context_menu {
+	font-size: 14px;
+	margin: 0 40px 21px 0;
+	padding: 14px;
+	line-height: 21px;
+	list-style-type: none;
+	background-color: #eee;
+	border-radius: 5px;
+}
+
+	div.additional ul.context_menu li {
+		
+	}
+
+		div.additional ul.context_menu li a, div.additional ul.context_menu li a:visited {
+			color: #000;
+		}

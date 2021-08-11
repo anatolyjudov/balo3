@@ -1,0 +1,1 @@
+{include file="$templates_path/feedback/feedback_form.tpl" fbform_single_page=true}
